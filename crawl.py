@@ -69,7 +69,9 @@ def crawls(text):
     df['tweet'] = df['tweet'].apply(lambda x: Tokenize(x))
     df['tweet'] = df['tweet'].apply(lambda x: JoinSc(x))
     extr=df[['date','username','tweet']]
-    extr.to_csv('WebMul/public/filesUpload/tes_data.csv')
+    extr.to_csv('data_csv/tes_data.csv')
+    # extr.to_csv('http://localhost:8000/storage/public/tes_data.csv')
+    
     return df
 
     

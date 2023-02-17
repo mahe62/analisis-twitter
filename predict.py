@@ -43,7 +43,7 @@ def Steamming(kalimat):
 
 
 def update():
-  df = pd.read_csv("WebMul/public/filesUpload/tes_data.csv")
+  df = pd.read_csv('data_csv/tes_data.csv')
   cleandata = df['tweet'].apply(CFRP)
   cleandata = df['tweet'].apply(Filtering)
   cleandata = df['tweet'].apply(Steamming)
@@ -53,19 +53,3 @@ def update():
   df['preprocessing'] = cleandata
   df['label']= predict_result
   return df
-  
-
-# with open('tes_data.csv','r') as f:
-#   reader = csv.reader(f, delimiter='\t')
-#   for i,line in enumerate(reader):
-#     text = line[0].split(',') [3]
-#     CFRP_text = CFRP(text)
-#     Filtering_text = Filtering(CFRP_text)
-#     Steamming_text=Steamming(Filtering_text)
-#     transform_cvec = cvec.transform([text])
-#     transform_tfid = tfid.transform(transform_cvec)
-#     predict_result = model.predict(transform_tfid)
-#     print(Steamming_text,predict_result)
-    # with open('./testing result1.csv', 'a',newline='') as f:
-    #     writer=csv.writer(f)
-    #     writer.writerow([text,Steamming_text , predict_result])
